@@ -27,6 +27,7 @@ public class UserModel {
     @NotNull (message = "Email can't be empty")
     private String email;
     private String address;
+    private String role;
 
 
 }
