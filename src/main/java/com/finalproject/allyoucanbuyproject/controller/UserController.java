@@ -20,7 +20,7 @@ public class UserController {
     public String showUsersPage(ModelMap modelMap) {
         UserModel user = new UserModel();
         modelMap.addAttribute("User", user);
-        return "create-user";
+        return "create-user"; //will be added later as an create-user.html
     }
 
     @PostMapping("/users")
