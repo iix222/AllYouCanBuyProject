@@ -20,4 +20,8 @@ public class ProductService {
 
     public List<ProductModel> getAllProducts() { return productRepository.findAll(); }
 
+
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
 }

@@ -1,5 +1,6 @@
 package com.finalproject.allyoucanbuyproject.model;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 public class OrderLine {
+
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +27,11 @@ public class OrderLine {
     @JoinColumn(name = "order_id", nullable = false)
     private OrderModel orderModel;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
