@@ -28,8 +28,9 @@ public class OrderModel {
 
     private LocalDate orderDate;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderLine> orderLines = new ArrayList<>();
+    @OneToMany(mappedBy = "orderModel")
+    private List<OrderLine> orderLine = new ArrayList<>();
+
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
