@@ -38,4 +38,18 @@ public class CategoryService {
     public Optional<CategoryModel> getCategoryById(Long categoryId) {
         return categoryRepository.findById(categoryId);
     }
+
+    public List<CategoryModel> getCategoryTree() {
+        List<CategoryModel> rootCategories = categoryRepository.findByParentCategoryIsNull();
+        populateChildren(rootCategories);
+        return rootCategories;
+    }
+
+    private void populateChildren(List<CategoryModel> categories) {
+        for (CategoryModel category : categories) {
+            List<CategoryModel> children = categoryRepository.findByParentCategory(category);
+            category.setChildCategories(children);
+            populateChildren(children);
+        }
+    }
 }

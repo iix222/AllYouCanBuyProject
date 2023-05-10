@@ -1,31 +1,25 @@
 package com.finalproject.allyoucanbuyproject.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
-import java.util.List;
-
 @Entity
-@Table(name = "category")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class CategoryModel {
-
-    private Long parentId;
+public class AuthorModel {
     @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
-    @Column(nullable = false)
     private String name;
+
+    private String description;
 
     public void setId(Long id) {
         this.id = id;
@@ -34,8 +28,4 @@ public class CategoryModel {
     public Long getId() {
         return id;
     }
-
-    public void setChildCategories(List<CategoryModel> children) {
-    }
-
 }

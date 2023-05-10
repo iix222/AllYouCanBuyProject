@@ -20,8 +20,11 @@ public class ProductModel {
     private String title;
     private String desc;
     private String category;
-    private int price;
+    private String imageUrl;
+    private double price;
     private int quantity;
+    private int inventory;
+
 
 
 }
