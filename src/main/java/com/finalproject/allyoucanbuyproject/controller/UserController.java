@@ -15,19 +15,14 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+    
 
-    @GetMapping("/users")
-    public String showUsersPage(ModelMap modelMap) {
-        UserModel user = new UserModel();
-        modelMap.addAttribute("User", user);
-        return "create-user"; //will be added later as an create-user.html
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute("user") UserModel user) {
+        userService.save(user);
+        return "redirect:/login"; // Redirect to the login page
     }
 
-    @PostMapping("/users")
-    public String createUser(@ModelAttribute("user") UserModel userModel) {
-        userService.save(userModel);
-        return "redirect:/books";
-    }
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute UserModel userModel) {
