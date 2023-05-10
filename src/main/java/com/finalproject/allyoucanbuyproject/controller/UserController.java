@@ -28,4 +28,10 @@ public class UserController {
         userService.save(userModel);
         return "redirect:/books";
     }
+
+    @PostMapping("/save")
+    public String saveUser(@ModelAttribute UserModel userModel) {
+        userService.save(userModel);
+        return "redirect:/";
+    }
 }
