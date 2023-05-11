@@ -40,14 +40,14 @@ public class CategoryService {
     }
 
     public List<CategoryModel> getCategoryTree() {
-        List<CategoryModel> rootCategories = categoryRepository.findByParentCategoryIsNull();
+        List<CategoryModel> rootCategories = categoryRepository.findByParentIdIsNull();
         populateChildren(rootCategories);
         return rootCategories;
     }
 
     private void populateChildren(List<CategoryModel> categories) {
         for (CategoryModel category : categories) {
-            List<CategoryModel> children = categoryRepository.findByParentCategory(category);
+            List<CategoryModel> children = categoryRepository.findByParentId(category);
             category.setChildCategories(children);
             populateChildren(children);
         }

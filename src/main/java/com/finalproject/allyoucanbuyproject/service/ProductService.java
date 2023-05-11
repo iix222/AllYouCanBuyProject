@@ -34,4 +34,14 @@ public class ProductService {
     public void deleteProduct(ProductModel product) {
         productRepository.delete(product);
     }
+
+    public ProductModel updateProduct(ProductModel productModel) {
+        if (productModel.getId() == null) {
+            throw new IllegalArgumentException("Product ID cannot be null");
+        }
+        return productRepository.save(productModel);
+    }
+
+    public void deleteById(Long id) {
+    }
 }
