@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Admin Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <!-- Include MDI icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="card p-4">
+        <h1 id="welcomeText" class="card-title">Welcome Admin</h1>
+        <div class="card-body">
+            <button class="btn btn-primary me-3" onclick="redirectToProductList()">
+                <span class="mdi mdi-view-list me-1"></span> Product List
+            </button>
+            <button class="btn btn-primary me-3" onclick="redirectToNewProduct()">
+                <span class="mdi mdi-plus-circle me-1"></span> Add New Product
+            </button><br><br>
+            <button class="btn btn-primary" onclick="redirectToCategoryTree()">
+                <span class="mdi mdi-eye me-1"></span> Category Overview - Add New Category
+            </button>
+        </div>
+    </div>
+</div>
 
+<!-- Include Bootstrap JS (Optional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    function setName(name) {
+        document.getElementById("welcomeText").textContent = "Welcome Admin " + name;
+    }
+    setName("Test");
+    function redirectToProductList() {
+        window.location.href = "product_list.html";
+    }
+
+    function redirectToNewProduct() {
+        window.location.href = "add_new_product.html";
+    }
+
+    function redirectToCategoryTree() {
+        window.location.href = "category_tree_overview.html";
+    }
+</script>
 </body>
 </html>
