@@ -20,7 +20,7 @@ public class CategoryService {
         return categoryRepository.save(categoryModel);
     }
 
-    public CategoryModel updateCategory(CategoryModel categoryModel) {
+    public CategoryModel updateCategory(Long id, CategoryModel categoryModel) {
         if (categoryModel.getId() == null) {
             throw new IllegalArgumentException("Category ID cannot be null");
         }
