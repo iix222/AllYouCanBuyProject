@@ -15,12 +15,12 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public void addProduct(ProductModel product) {
-        productRepository.save(product);
+    public void addProduct(ProductModel productModel) {
+        productRepository.save(productModel);
     }
 
-    public List<ProductModel> getProductsByCategory(CategoryModel category) {
-        return productRepository.findByCategory(category);
+    public List<ProductModel> getProductsByCategory(CategoryModel categoryModel) {
+        return productRepository.findByCategory(categoryModel);
     }
 
     public List<ProductModel> getAllProducts() {
@@ -31,8 +31,8 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public void deleteProduct(ProductModel product) {
-        productRepository.delete(product);
+    public void deleteProduct(ProductModel productModel) {
+        productRepository.delete(productModel);
     }
 
     public ProductModel updateProduct(ProductModel productModel) {

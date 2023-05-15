@@ -16,8 +16,8 @@ public class AuthorService {
         this.authorRepository = authorRepository;
     }
 
-    public AuthorModel addAuthor(AuthorModel author) {
-        return authorRepository.save(author);
+    public AuthorModel addAuthor(AuthorModel authorModel) {
+        return authorRepository.save(authorModel);
     }
 
     public List<AuthorModel> getAuthors() {

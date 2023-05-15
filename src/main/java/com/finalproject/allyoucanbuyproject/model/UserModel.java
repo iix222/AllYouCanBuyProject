@@ -30,4 +30,17 @@ public class UserModel {
     private String role;
 
 
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

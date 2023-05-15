@@ -3,7 +3,6 @@ package com.finalproject.allyoucanbuyproject.controller;
 import com.finalproject.allyoucanbuyproject.model.ProductModel;
 import com.finalproject.allyoucanbuyproject.service.ProductService;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +19,8 @@ public class ProductController {
 
     @GetMapping("/products")
     public String getAllProducts(final ModelMap modelMap) {
-        List<ProductModel> products = productService.getAllProducts();
-        modelMap.addAttribute("products", products);
+        List<ProductModel> productModels = productService.getAllProducts();
+        modelMap.addAttribute("products", productModels);
         return "main";
     }
 
@@ -33,7 +32,7 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public String createProduct(@ModelAttribute("product")ProductModel productModel) {
+    public String createProduct(@ModelAttribute("product") ProductModel productModel) {
         productService.addProduct(productModel);
         return "redirect:/products";
     }

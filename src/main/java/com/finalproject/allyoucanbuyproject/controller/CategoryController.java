@@ -19,13 +19,13 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
     @PostMapping("/categories")
-    public CategoryModel createCategory(@RequestBody CategoryModel category) {
-        return categoryService.createCategory(category);
+    public CategoryModel createCategory(@RequestBody CategoryModel categoryModel) {
+        return categoryService.createCategory(categoryModel);
     }
 
     @PutMapping("/categories/{id}")
-    public CategoryModel updateCategory(@PathVariable Long id, @RequestBody CategoryModel category) {
-        return categoryService.updateCategory(id, category);
+    public CategoryModel updateCategory(@PathVariable Long id, @RequestBody CategoryModel categoryModel) {
+        return categoryService.updateCategory(id, categoryModel);
     }
 
     @DeleteMapping("/categories/{id}")

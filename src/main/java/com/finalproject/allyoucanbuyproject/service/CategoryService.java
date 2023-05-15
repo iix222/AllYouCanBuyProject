@@ -46,9 +46,9 @@ public class CategoryService {
     }
 
     private void populateChildren(List<CategoryModel> categories) {
-        for (CategoryModel category : categories) {
-            List<CategoryModel> children = categoryRepository.findByParentId(category);
-            category.setChildCategories(children);
+        for (CategoryModel categoryModel : categories) {
+            List<CategoryModel> children = categoryRepository.findByParentId(categoryModel);
+            categoryModel.setChildCategories(children);
             populateChildren(children);
         }
     }

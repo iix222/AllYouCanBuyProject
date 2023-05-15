@@ -3,8 +3,6 @@ package com.finalproject.allyoucanbuyproject.controller;
 import com.finalproject.allyoucanbuyproject.model.UserModel;
 import com.finalproject.allyoucanbuyproject.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -18,15 +16,15 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("user") UserModel user) {
-        userService.save(user);
+    public String registerUser(@ModelAttribute("user") UserModel userModel) {
+        userService.saveUser(userModel);
         return "redirect:/login"; // Redirect to the login page
     }
 
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute UserModel userModel) {
-        userService.save(userModel);
+        userService.saveUser(userModel);
         return "redirect:/";
     }
 }
