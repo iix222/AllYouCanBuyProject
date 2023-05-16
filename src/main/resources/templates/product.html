@@ -4,6 +4,9 @@
     <title>Product Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css" integrity="sha512-LX0YV/MWBEn2dwXCYgQHrpa9HJkwB+S+bnBpifSOTO1No27TqNMKYoAn6ff2FBh03THAzAiiCwQ+aPX+/Qt/Ow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -67,6 +70,52 @@
     </style>
 </head>
 <body>
+<header>
+    <nav class="navbar">
+        <a class="logo-wrapper" href="main.html">
+            <img class="logo logo-dark" src="#" alt="All you can buy!">
+        </a>
+        <div class="center-button">
+            <a href="#" class="button">Home</a>
+        </div>
+        <div class="menu-container">
+            <div class="button button-categories">
+                Categories
+                <span class="fas fa-bars"></span>
+            </div>
+            <ul>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Garden</a></li>
+                <li><a href="#">Pets</a></li>
+            </ul>
+        </div>
+        <div class="menu-container">
+            <div class="button button-language">
+                Language
+                <span class="fas fa-bars"></span>
+            </div>
+            <ul>
+                <li><a href="#">English</a></li>
+                <li><a href="#">Estonian</a></li>
+            </ul>
+        </div>
+        <div class="center-button">
+            <a href="sign_in.html" class="button">Sign in</a>
+        </div>
+        <div class="center-button">
+            <a href="order_list.html" class="button">Orders</a>
+        </div>
+        <form class="search-form">
+            <div class="search-bar">
+                <input type="search" placeholder="Search..." class="search-input">
+                <i class="mdi mdi-magnify search-icon"></i>
+            </div>
+        </form>
+        <a href="shopping_cart.html" class="cart-button">
+            Cart <i class="fa fa-shopping-cart"></i>
+        </a>
+    </nav>
+</header>
 
 <div class="container">
     <div class="card">
