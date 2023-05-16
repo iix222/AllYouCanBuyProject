@@ -29,26 +29,24 @@
             border: 1px solid currentColor;
             border-radius: 5px;
         }
-        .card-title {
-            font-size: 40px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .card {
-            height: auto;
-        }
-        .container {
-            margin-top: 50px;
-        }  body {
-            background-color: #f8f9fa;
-        }
-        .category {
-            margin-bottom: 10px;
-        }
-      .bn35 {
-  text-decoration: underline;
-}
+        .discount {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
 
+        }
+        .seamless-link {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .seamless-link:hover {
+            text-decoration: none;
+        }
+        .hidden {
+      display: none;
+    }
     </style>
 </head>
 <body >
@@ -85,7 +83,7 @@
             <a href="sign_in.html" class="button">Sign in</a>
         </div>
         <div class="center-button">
-            <a href="order_list.html" class="button">Orders</a>
+            <a href="order_list.html" class="button hidden">Orders</a>
         </div>
         <form class="search-form">
             <div class="search-bar">
@@ -97,21 +95,57 @@
             Cart <i class="fa fa-shopping-cart"></i>
         </a>
     </nav>
-
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">Your orders:</h3>
-
-
-        <li><a href="orders.html" class="bn35">Order no:</a> th:text="${order.orderDate}"</li>
-
-
-        <li><a href="orders.html" class="bn35">Order no:</a> <time>01.05.2023</time></li>
-
-
-
 </header>
+<article class="browser">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="product.html" class="seamless-link">
+                <div class="card mb-4" style="width: 14rem;">
+                    <img src="https://m.media-amazon.com/images/I/810uFCMRFuL._AC_SL1500_.jpg" class="card-img-top" alt="Pets" style="width:100%">
+                    <div class="card-body">
+                        <h5>Dog bed</h5>
+                        <p class="card-text discount">15% off</p>
+                        <h5 class="card-title">49€</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="product.html" class="seamless-link">
+                <div class="card mb-4" style="width: 14rem;">
+                    <img src="https://m.media-amazon.com/images/I/61GYd8qG2QL._AC_SL1500_.jpg" class="card-img-top" alt="Pets" style="width:85%">
+                    <div class="card-body">
+                        <h5>Dog bowl</h5>
+                        <p class="card-text discount">15% off</p>
+                        <h5 class="card-title">35€</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="product.html" class="seamless-link">
+                <div class="card mb-4" style="width: 14rem;">
+                    <img src="https://m.media-amazon.com/images/I/61NPu0p-wsL._AC_SL1000_.jpg" class="card-img-top" alt="Pets" style="width:75%">
+                    <div class="card-body">
+                        <h5>Cat toy set</h5>
+                        <h5 class="card-title">15€</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="product.html" class="seamless-link">
+                <div class="card mb-4" style="width: 14rem;">
+                    <img src="https://m.media-amazon.com/images/I/81jNiuZUXjL._AC_SL1500_.jpg" class="card-img-top" alt="Pets" style="width:100%">
+                    <div class="card-body">
+                        <h5>Carrier</h5>
+                        <h5 class="card-title">35€</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</article>
 
 </body>
 </html>
