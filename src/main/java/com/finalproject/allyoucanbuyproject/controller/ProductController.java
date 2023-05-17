@@ -19,16 +19,16 @@ public class ProductController {
 
     @GetMapping("/products")
     public String getAllProducts(final ModelMap modelMap) {
-        List<ProductModel> productModels = productService.getAllProducts();
-        modelMap.addAttribute("products", productModels);
+        List<ProductModel> products = productService.getAllProducts();
+        modelMap.addAttribute("products", products);
         return "main";
     }
 
     @GetMapping("/products/create")
     public String showCreateProductForm(ModelMap modelMap) {
-        ProductModel productModel = new ProductModel();
-        modelMap.addAttribute("product", productModel);
-        return "create-product";
+        ProductModel product = new ProductModel();
+        modelMap.addAttribute("product", product);
+        return "add_new_product";
     }
 
     @PostMapping("/products")

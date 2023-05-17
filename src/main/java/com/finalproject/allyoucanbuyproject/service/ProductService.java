@@ -2,6 +2,7 @@ package com.finalproject.allyoucanbuyproject.service;
 
 import com.finalproject.allyoucanbuyproject.model.CategoryModel;
 import com.finalproject.allyoucanbuyproject.model.ProductModel;
+import com.finalproject.allyoucanbuyproject.repository.CategoryRepository;
 import com.finalproject.allyoucanbuyproject.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    private CategoryRepository categoryRepository;
 
     public void addProduct(ProductModel productModel) {
         productRepository.save(productModel);
@@ -86,4 +89,8 @@ public class ProductService {
             // Set other properties of the ProductModel as needed
             return productModel;
         }
+
+    public List<CategoryModel> listCategories() {
+        return categoryRepository.findAll();
     }
+}

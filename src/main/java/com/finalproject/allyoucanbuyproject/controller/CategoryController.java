@@ -2,7 +2,9 @@ package com.finalproject.allyoucanbuyproject.controller;
 
 import com.finalproject.allyoucanbuyproject.model.CategoryModel;
 import com.finalproject.allyoucanbuyproject.service.CategoryService;
+import com.finalproject.allyoucanbuyproject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +15,9 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/categories")
     public List<CategoryModel> getAllCategories() {
@@ -31,5 +36,11 @@ public class CategoryController {
     @DeleteMapping("/categories/{id}")
     public void deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);
+    }
+    @GetMapping("/main")
+    public String mainPage(Model model) {
+        List<CategoryModel> categories = productService.listCategories();
+        model.addAttribute("categories", categories);
+        return "index"; // Replace with the name of your HTML template
     }
 }

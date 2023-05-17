@@ -10,5 +10,7 @@ import java.util.List;
 public interface CategoryRepository extends JpaRepository<CategoryModel, Long> {
     List<CategoryModel> findByParentIdIsNull();
 
+    List<CategoryModel> findAll();
+
     List<CategoryModel> findByParentId(CategoryModel categoryModel);
 }
