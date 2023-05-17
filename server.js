@@ -135,19 +135,17 @@ app.post('/api/products', (req, res) => {
 // Route for electronics category
 app.get('/electronics', (req, res) => {
     const electronicsProducts = products.filter((product) => product.category === 'Electronics');
-    res.render('electronics', { products: electronicsProducts });
+    res.sendFile(path.join(__dirname, 'templates', 'electronics.handlebars'));
 });
 
-// Route for garden category
 app.get('/garden', (req, res) => {
     const gardenProducts = products.filter((product) => product.category === 'Garden');
-    res.render('garden', { products: gardenProducts });
+    res.sendFile(path.join(__dirname, 'templates', 'garden.handlebars'));
 });
 
-// Route for pets category
 app.get('/pets', (req, res) => {
     const petsProducts = products.filter((product) => product.category === 'Pets');
-    res.render('pets', { products: petsProducts });
+    res.sendFile(path.join(__dirname, 'templates', 'pets.handlebars'));
 });
 
 // Start the server
