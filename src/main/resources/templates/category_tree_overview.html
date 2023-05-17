@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table {
+            background-color: #f8f9fa;
+        }
+    </style>
 </head>
+
 <body>
+<div class="container">
+    <br>
+    <h1>Category Management</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Category</th>
+        </tr>
+        <br>
+        </thead>
+        <tbody id="categoryTableBody">
+        <tr>
+            <td>Electronics</td>
+        </tr>
+        <tr>
+            <td>Garden</td>
+        </tr>
+        <tr>
+            <td>Pets</td>
+        </tr>
+        </tbody>
+    </table>
+    <tr>
+        <td>
+            <input type="text" class="form-control" id="categoryInput" placeholder="Enter a new category name">
+        </td>
+    </tr>
+    <br>
+    <button class="btn btn-primary" id="addCategoryBtn">Add Category</button>
+</div>
+
+<script>
+    // Event listener for adding category
+    document.getElementById('addCategoryBtn').addEventListener('click', function() {
+        var categoryName = document.getElementById('categoryInput').value;
+
+        if (categoryName !== '') {
+            var categoryRow = `
+          <tr>
+            <td>${categoryName}</td>
+          </tr>`;
+            document.getElementById('categoryTableBody').innerHTML += categoryRow;
+
+            // Reset input field
+            document.getElementById('categoryInput').value = '';
+        }
+    });
+</script>
 
 </body>
+
 </html>
