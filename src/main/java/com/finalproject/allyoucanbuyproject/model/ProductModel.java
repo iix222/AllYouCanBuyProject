@@ -26,5 +26,9 @@ public class ProductModel {
     private int inventory;
 
 
+    public void setName(String name) {
+    }
 
+    public void setDiscount(String discount) {
+    }
 }

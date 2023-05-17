@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Product list</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
 </head>
 <body>
 
+<h2>Product list</h2>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    <tr>
+        <td>Electronics</td>
+        <td>Camera</td>
+        <td>89€</td>
+        <td>20</td>
+    </tr>
+
+</table>
+
+<button type="submit" class="btn btn-primary" onclick="add_new_product.html">
+    <span onclick="window.location.href=add_new_product"></span>Add new product
+</button>
 </body>
 </html>
