@@ -1,5 +1,11 @@
 const express = require('express');
 const app = express();
+const exphbs = require('express-handlebars');
+const path = require('path');
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(express.json()); // Parse JSON bodies
@@ -15,11 +21,7 @@ app.post('/submit_product', (req, res) => {
     res.sendStatus(200);
 });
 
-// Start the server
-app.listen(8080, () => {
-    console.log('Server listening on port 8080');
-});
-
+// Route for retrieving all products
 let products = [
     {
         id: 1,
@@ -130,4 +132,24 @@ app.post('/api/products', (req, res) => {
     res.sendStatus(201); // Created
 });
 
-// TODO: Add more routes for updating and deleting items
+// Route for electronics category
+app.get('/electronics', (req, res) => {
+    const electronicsProducts = products.filter((product) => product.category === 'Electronics');
+    res.sendFile(path.join(__dirname, 'templates', 'electronics.handlebars'));
+});
+
+app.get('/garden', (req, res) => {
+    const gardenProducts = products.filter((product) => product.category === 'Garden');
+    res.sendFile(path.join(__dirname, 'templates', 'garden.handlebars'));
+});
+
+app.get('/pets', (req, res) => {
+    const petsProducts = products.filter((product) => product.category === 'Pets');
+    res.sendFile(path.join(__dirname, 'templates', 'pets.handlebars'));
+});
+
+// Start the server
+app.listen(8080, () => {
+    console.log('Server listening on port 8080');
+});
+

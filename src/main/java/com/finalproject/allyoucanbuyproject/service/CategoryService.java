@@ -2,6 +2,7 @@ package com.finalproject.allyoucanbuyproject.service;
 
 import com.finalproject.allyoucanbuyproject.model.CategoryModel;
 import com.finalproject.allyoucanbuyproject.repository.CategoryRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,40 +17,32 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public CategoryModel createCategory(CategoryModel categoryModel) {
-        return categoryRepository.save(categoryModel);
-    }
-
-    public CategoryModel updateCategory(Long id, CategoryModel categoryModel) {
-        if (categoryModel.getId() == null) {
-            throw new IllegalArgumentException("Category ID cannot be null");
-        }
-        return categoryRepository.save(categoryModel);
-    }
-
-    public void deleteCategory(Long categoryId) {
-        categoryRepository.deleteById(categoryId);
-    }
-
     public List<CategoryModel> getAllCategories() {
         return categoryRepository.findAll();
     }
 
-    public Optional<CategoryModel> getCategoryById(Long categoryId) {
-        return categoryRepository.findById(categoryId);
+    public CategoryModel getCategoryById(Long id) {
+        return categoryRepository.findById(id)
+                .orElse(null);
     }
 
-    public List<CategoryModel> getCategoryTree() {
-        List<CategoryModel> rootCategories = categoryRepository.findByParentIdIsNull();
-        populateChildren(rootCategories);
-        return rootCategories;
+    public CategoryModel createCategory(CategoryModel category) {
+        return categoryRepository.save(category);
     }
 
-    private void populateChildren(List<CategoryModel> categories) {
-        for (CategoryModel categoryModel : categories) {
-            List<CategoryModel> children = categoryRepository.findByParentId(categoryModel);
-            categoryModel.setChildCategories(children);
-            populateChildren(children);
+    public CategoryModel updateCategory(CategoryModel category) {
+        if (category.getId() == null) {
+            throw new IllegalArgumentException("Category ID cannot be null");
+        }
+        return categoryRepository.save(category);
+    }
+
+    public boolean deleteCategory(Long id) {
+        try {
+            categoryRepository.deleteById(id);
+            return true;
+        } catch (EmptyResultDataAccessException e) {
+            return false;
         }
     }
 }

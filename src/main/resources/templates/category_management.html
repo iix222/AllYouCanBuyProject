@@ -79,12 +79,11 @@
 </div>
 
 <script>
-    // Event listener for adding category
     document.getElementById('addCategoryBtn').addEventListener('click', function() {
-        var categoryName = document.getElementById('categoryInput').value;
+        const categoryName = document.getElementById('categoryInput').value;
 
         if (categoryName !== '') {
-            var categoryRow = `
+            const categoryRow = `
           <tr>
             <td>${categoryName}</td>
           </tr>`;

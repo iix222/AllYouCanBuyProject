@@ -4,43 +4,62 @@ import com.finalproject.allyoucanbuyproject.model.CategoryModel;
 import com.finalproject.allyoucanbuyproject.service.CategoryService;
 import com.finalproject.allyoucanbuyproject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/categories")
 public class CategoryController {
 
-    @Autowired
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
-    @Autowired
-    private ProductService productService;
-
-    @GetMapping("/categories")
-    public List<CategoryModel> getAllCategories() {
-        return categoryService.getAllCategories();
-    }
-    @PostMapping("/categories")
-    public CategoryModel createCategory(@RequestBody CategoryModel categoryModel) {
-        return categoryService.createCategory(categoryModel);
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
-    @PutMapping("/categories/{id}")
-    public CategoryModel updateCategory(@PathVariable Long id, @RequestBody CategoryModel categoryModel) {
-        return categoryService.updateCategory(id, categoryModel);
+    @GetMapping
+    public ResponseEntity<List<CategoryModel>> getAllCategories() {
+        List<CategoryModel> categories = categoryService.getAllCategories();
+        return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    @DeleteMapping("/categories/{id}")
-    public void deleteCategory(@PathVariable Long id) {
-        categoryService.deleteCategory(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<CategoryModel> getCategoryById(@PathVariable("id") Long id) {
+        CategoryModel category = categoryService.getCategoryById(id);
+        if (category != null) {
+            return new ResponseEntity<>(category, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
-    @GetMapping("/main")
-    public String mainPage(Model model) {
-        List<CategoryModel> categories = productService.listCategories();
-        model.addAttribute("categories", categories);
-        return "index"; // Replace with the name of your HTML template
+
+    @PostMapping
+    public ResponseEntity<CategoryModel> createCategory(@RequestBody CategoryModel categoryModel) {
+        CategoryModel createdCategory = categoryService.createCategory(categoryModel);
+        return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CategoryModel> updateCategory(@PathVariable("id") Long id, @RequestBody CategoryModel categoryModel) {
+        CategoryModel updatedCategory = categoryService.updateCategory(categoryModel);
+        if (updatedCategory != null) {
+            return new ResponseEntity<>(updatedCategory, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCategory(@PathVariable("id") Long id) {
+        boolean deleted = categoryService.deleteCategory(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

@@ -15,33 +15,25 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class OrderModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String username;
-
+    private String userName;
     private BigDecimal totalCost;
-
     private String deliveryAddress;
-
     private String userAddress;
-
     private LocalDate orderDate;
 
-    @OneToMany(mappedBy = "orderModel")
-    private List<OrderLine> orderLine = new ArrayList<>();
-
-
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel user;
+    private UserModel userModel;
+
+    public void setTotalCost(BigDecimal totalCost) {
+        this.totalCost = totalCost;
+    }
+
+
 
 }
