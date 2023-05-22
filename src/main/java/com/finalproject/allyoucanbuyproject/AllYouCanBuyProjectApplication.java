@@ -43,7 +43,7 @@ public class AllYouCanBuyProjectApplication implements CommandLineRunner {
 		//orderModel.setTotalCost()
 		orderModel.setDeliveryAddress("Tallinn");
 		orderModel.setOrderDate(LocalDate.of(2023, 1, 23));
-		orderModel.setUsername("JaneDoe");
+		orderModel.setUserName("JaneDoe");
 		orderService.save(orderModel);
 	}
 }

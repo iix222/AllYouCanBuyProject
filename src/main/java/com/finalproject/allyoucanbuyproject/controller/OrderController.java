@@ -21,10 +21,10 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public String createOrder(@ModelAttribute("order") OrderModel orderModel) {
-       orderService.save(orderModel);
-       return "redirect:/orders";
-   }
+    public String createOrder(@RequestBody OrderModel orderModel) {
+        orderService.save(orderModel);
+        return "redirect:/orders";
+    }
 
 @GetMapping("/orders")
     public List<OrderModel> getAllOrders() { return orderService.getAllOrders();}
