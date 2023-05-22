@@ -8,12 +8,13 @@ import com.finalproject.allyoucanbuyproject.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-
+@EntityScan
 @SpringBootApplication
 public class AllYouCanBuyProjectApplication implements CommandLineRunner {
 

@@ -5,37 +5,31 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "category")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryModel {
 
-    private Long parentId;
-    @jakarta.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     @Column(nullable = false)
     private String name;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private CategoryModel parentCategory;
 
-    public Long getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CategoryModel> childCategories = new ArrayList<>();
 
-    public void setChildCategories(List<CategoryModel> children) {
-    }
 
 }
