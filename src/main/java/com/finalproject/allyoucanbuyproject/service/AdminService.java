@@ -1,14 +1,13 @@
 package com.finalproject.allyoucanbuyproject.service;
 
 import com.finalproject.allyoucanbuyproject.model.AdminModel;
-import com.finalproject.allyoucanbuyproject.repository.AdminRepository;
-import org.springframework.stereotype.Service;
 
-@Service
-public class AdminService {
-    private final AdminRepository adminRepository;
+import java.util.List;
 
-    public AdminService(AdminRepository adminRepository) { this.adminRepository = adminRepository; }
-
-    public void save(AdminModel adminModel) { adminRepository.save(adminModel); }
+public interface AdminService {
+    AdminModel createAdmin(AdminModel adminModel);
+    AdminModel getAdminById(Long id);
+    List<AdminModel> getAllAdmins();
+    AdminModel updateAdmin(Long id, AdminModel adminModel);
+    boolean deleteAdmin(Long id);
 }
