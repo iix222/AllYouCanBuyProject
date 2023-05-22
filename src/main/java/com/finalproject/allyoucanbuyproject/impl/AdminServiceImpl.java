@@ -1,7 +1,8 @@
-package com.finalproject.allyoucanbuyproject.service;
+package com.finalproject.allyoucanbuyproject.impl;
 
 import com.finalproject.allyoucanbuyproject.model.AdminModel;
 import com.finalproject.allyoucanbuyproject.repository.AdminRepository;
+import com.finalproject.allyoucanbuyproject.service.AdminService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,28 +1,4 @@
-const express = require('express');
-const app = express();
-const exphbs = require('express-handlebars');
-const path = require('path');
-
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
-app.use(express.json()); // Parse JSON bodies
-
-app.post('/submit_product', (req, res) => {
-    // Retrieve the form data from the request body
-    const { quantity } = req.body;
-
-    // Process the form data (e.g., save it to a database)
-    // ...
-
-    // Send a response back to the client
-    res.sendStatus(200);
-});
-
-// Route for retrieving all products
-let products = [
+const products = [
     {
         id: 1,
         name: 'Garden furniture',
@@ -119,37 +95,3 @@ let products = [
         price: '349€'
     }
 ];
-
-// GET route for retrieving all items
-app.get('/api/products', (req, res) => {
-    res.json(products);
-});
-
-// POST route for adding a new item
-app.post('/api/products', (req, res) => {
-    const newProduct = req.body;
-    products.push(newProduct);
-    res.sendStatus(201); // Created
-});
-
-// Route for electronics category
-app.get('/electronics', (req, res) => {
-    const electronicsProducts = products.filter((product) => product.category === 'Electronics');
-    res.sendFile(path.join(__dirname, 'templates', 'electronics.handlebars'));
-});
-
-app.get('/garden', (req, res) => {
-    const gardenProducts = products.filter((product) => product.category === 'Garden');
-    res.sendFile(path.join(__dirname, 'templates', 'garden.handlebars'));
-});
-
-app.get('/pets', (req, res) => {
-    const petsProducts = products.filter((product) => product.category === 'Pets');
-    res.sendFile(path.join(__dirname, 'templates', 'pets.handlebars'));
-});
-
-// Start the server
-app.listen(8080, () => {
-    console.log('Server listening on port 8080');
-});
-
