@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/templates/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.2.96/css/materialdesignicons.min.css" integrity="sha512-LX0YV/MWBEn2dwXCYgQHrpa9HJkwB+S+bnBpifSOTO1No27TqNMKYoAn6ff2FBh03THAzAiiCwQ+aPX+/Qt/Ow==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -51,6 +51,7 @@
 </head>
 <body>
 <header>
+
     <nav class="navbar">
         <a class="logo-wrapper" href="main.html">
             <img class="logo logo-dark" src="#" alt="All you can buy!">
@@ -64,24 +65,36 @@
                 <span class="fas fa-bars"></span>
             </div>
             <ul>
-                <li><a href="/electronics">Electronics</a></li>
-                <li><a href="/garden">Garden</a></li>
-                <li><a href="/pets">Pets</a></li>
+                <li><a href="electronics.html">Electronics</a></li>
+                <li><a href="garden.html">Garden</a></li>
+                <li><a href="pets.html">Pets</a></li>
             </ul>
         </div>
-        <div
-
-                class="menu-container">
+        <div class="menu-container">
             <div class="button button-language">
                 Language
                 <span class="fas fa-bars"></span>
             </div>
             <ul>
                 <li><a href="#">English</a></li>
-                <li><a href="#">German</a></li>
-                <li><a href="#">French</a></li>
+                <li><a href="#">Estonian</a></li>
             </ul>
         </div>
+        <div class="center-button">
+            <a href="sign_in.html" class="button">Sign in</a>
+        </div>
+        <div class="center-button">
+            <a href="order_list.html" class="button hidden">Orders</a>
+        </div>
+        <form class="search-form">
+            <div class="search-bar">
+                <input type="search" placeholder="Search..." class="search-input">
+                <i class="mdi mdi-magnify search-icon"></i>
+            </div>
+        </form>
+        <a href="shopping_cart.html" class="cart-button">
+            Cart <i class="fa fa-shopping-cart"></i>
+        </a>
     </nav>
 </header>
 <main>
@@ -152,4 +165,47 @@
 </script>
 
 </body>
+<link rel="stylesheet" href="css/main.css">
+<footer>
+    <form>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="btn-group center-button-container">
+                        <div class="center-button">
+                            <a href="end.html" class="button">About us</a>
+                        </div>
+                        <div class="center-button">
+                            <a href="end.html" class="button">Contact us</a>
+                        </div>
+                        <div class="center-button">
+                            <a href="end.html" class="button">Customer Service</a>
+                        </div>
+                        <div class="center-button">
+                            <a href="end.html" class="button">Privacy Policy</a>
+                        </div>
+                        <div class="center-button">
+                            <a href="end.html" class="button hidden">Terms and Conditions</a>
+                        </div>
+                        <div class="center-button">
+                            <a href="end.html" class="button hidden">Payment and Security</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</footer>
+
+<style>
+    .center-button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .center-button {
+        margin: 0 10px;
+    }
+</style>
+
 </html>
