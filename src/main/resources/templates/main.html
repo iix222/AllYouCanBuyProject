@@ -47,10 +47,15 @@
         .hidden {
       display: none;
     }
+        .center-button-container {
+            display: flex;
+            justify-content: center;
+        }
 
-
-
-
+        .center-button {
+            margin: 0 10px;
+        }
+  
     </style>
 </head>
 <body >
@@ -258,13 +263,23 @@
         </div>
     </div>
 </div>
+<div class="card weather-widget bg-light p-3">
+    <div class="card-body">
+        <h5 class="card-title text-center">Weather Widget</h5>
+        <div class="weather-info">
+            <div class="location text-center"></div>
+            <div class="temperature text-center"></div>
+            <div class="description text-center"></div>
+        </div>
+    </div>
+</div>
 </body>
 <footer>
     <form>
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <div class=" btn-group">
+                    <div class="btn-group center-button-container">
         <div class="center-button">
             <a href="end.html" class="button">About us</a>
         </div>
@@ -290,16 +305,6 @@
     </form>
 </footer>
 <footer>
-    <div class="card weather-widget bg-light p-3">
-        <div class="card-body">
-            <h5 class="card-title text-center">Weather Widget</h5>
-            <div class="weather-info">
-                <div class="location text-center"></div>
-                <div class="temperature text-center"></div>
-                <div class="description text-center"></div>
-            </div>
-        </div>
-    </div>
 </footer>
 <script>
     // Expand?
