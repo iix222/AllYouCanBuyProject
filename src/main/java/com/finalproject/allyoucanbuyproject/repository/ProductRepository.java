@@ -11,4 +11,5 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<ProductModel, Long> {
     List<ProductModel> findByCategory(CategoryModel categoryModel);
 
+    ProductModel saveProduct(ProductModel productModel);
 }
