@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface AdminRepository extends JpaRepository<AdminModel, Long> {
     AdminModel getAdminById(Long id);
-    List<AdminModel> getAllAdmins();
+    List<AdminModel> findAll();
     void deleteAdminById(Long id);
-    void saveAdmin(AdminModel admin);
 }
