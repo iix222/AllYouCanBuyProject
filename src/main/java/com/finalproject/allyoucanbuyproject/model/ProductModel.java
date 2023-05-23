@@ -18,12 +18,14 @@ public class ProductModel {
 
     @NotNull(message= "Product can't be null")
     private String title;
-    private String desc;
+    private String description;
     private String category;
     private String imageUrl;
     private double price;
     private int quantity;
     private int inventory;
+    private String type;
+    private String manufacturer;
 
 
     public void setName(String name) {

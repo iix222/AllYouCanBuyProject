@@ -33,6 +33,12 @@ public class ProductController {
         }
     }
 
+    @PostMapping
+    public ResponseEntity<ProductModel> addProduct(@RequestBody ProductModel product) {
+        ProductModel newProduct = productService.addProduct(product);
+        return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
+    }
+
 }
 
 

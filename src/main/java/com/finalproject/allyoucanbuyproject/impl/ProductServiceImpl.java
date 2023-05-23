@@ -27,4 +27,9 @@ public class ProductServiceImpl implements ProductService {
         return productOptional.orElse(null);
     }
 
+    @Override
+    public ProductModel addProduct(ProductModel product) {
+        return productRepository.save(product);
+    }
+
 }

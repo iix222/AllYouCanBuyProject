@@ -9,4 +9,5 @@ public interface ProductService {
 
     ProductModel getProductById(Long id);
 
+    ProductModel addProduct(ProductModel productModel);
 }
