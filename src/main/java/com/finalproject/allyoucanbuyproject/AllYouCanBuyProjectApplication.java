@@ -13,22 +13,12 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@EntityScan
 @SpringBootApplication
 public class AllYouCanBuyProjectApplication implements CommandLineRunner {
 
-	private final ProductService productService;
-
-	private final AdminService adminService;
-
-	private final UserService userService;
-
 	private final OrderService orderService;
 
-	public AllYouCanBuyProjectApplication(ProductService productService, AdminService adminService, UserService userService, OrderService orderService) {
-		this.productService = productService;
-		this.adminService = adminService;
-		this.userService = userService;
+	public AllYouCanBuyProjectApplication(OrderService orderService) {
 		this.orderService = orderService;
 	}
 
