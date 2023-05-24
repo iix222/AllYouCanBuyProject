@@ -28,7 +28,7 @@ public class OrderModel {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserModel userModel;
+    private UserModel user;
 
     public void setTotalCost(BigDecimal totalCost) {
         this.totalCost = totalCost;
