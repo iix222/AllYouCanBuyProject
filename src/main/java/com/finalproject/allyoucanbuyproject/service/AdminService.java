@@ -10,4 +10,6 @@ public interface AdminService {
     List<AdminModel> getAllAdmins();
     AdminModel updateAdmin(Long id, AdminModel adminModel);
     boolean deleteAdmin(Long id);
+
+    AdminModel getAuthenticatedAdmin();
 }

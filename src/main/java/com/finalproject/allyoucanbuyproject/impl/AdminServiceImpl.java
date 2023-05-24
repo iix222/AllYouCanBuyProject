@@ -49,4 +49,9 @@ public class AdminServiceImpl implements AdminService {
             return false;
         }
     }
+
+    @Override
+    public AdminModel getAuthenticatedAdmin() {
+        return null;
+    }
 }

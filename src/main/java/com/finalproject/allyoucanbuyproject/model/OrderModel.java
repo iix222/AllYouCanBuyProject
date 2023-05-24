@@ -30,6 +30,10 @@ public class OrderModel {
     @JoinColumn(name = "user_id")
     private UserModel user;
 
+    @OneToMany(mappedBy = "orderModel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderLine> orderLines = new ArrayList<>();
+
+
     public void setTotalCost(BigDecimal totalCost) {
         this.totalCost = totalCost;
     }
