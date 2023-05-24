@@ -16,8 +16,8 @@ public class ProductModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message= "Product can't be null")
-    private String title;
+    @NotNull(message = "Product title cannot be null")
+    private String productName;
     private String description;
     private String category;
     private String imageUrl;
@@ -26,6 +26,7 @@ public class ProductModel {
     private int inventory;
     private String type;
     private String manufacturer;
+    private String discount;
 
 
     public void setName(String name) {
