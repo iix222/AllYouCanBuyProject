@@ -54,10 +54,12 @@
 
     <nav class="navbar">
         <a class="logo-wrapper" href="main.html">
-            <img class="logo logo-dark" src="#" alt="All you can buy!">
+            <img src="assets/Allyoucanbuy1.png" alt="All you can buy!" style="width:100%; height: 80px;">
         </a>
         <div class="center-button">
-            <a href="main.html" class="button">Home</a>
+            <a href="main.html" class="button">Home
+                <i class="mdi mdi-home-variant"></i>
+            </a>
         </div>
         <div class="menu-container">
             <div class="button button-categories">
@@ -70,25 +72,17 @@
                 <li><a href="pets.html">Pets</a></li>
             </ul>
         </div>
-        <div class="menu-container">
-            <div class="button button-language">
-                Language
-                <span class="fas fa-bars"></span>
-            </div>
-            <ul>
-                <li><a href="#">English</a></li>
-                <li><a href="#">Estonian</a></li>
-            </ul>
-        </div>
         <div class="center-button">
-            <a href="sign_in.html" class="button">Sign in</a>
+            <a href="sign_in.html" class="button">Sign in
+                <i class="mdi mdi-login"></i>
+            </a>
         </div>
         <div class="center-button">
             <a href="order_list.html" class="button hidden">Orders</a>
         </div>
         <form class="search-form">
             <div class="search-bar">
-                <input type="search" placeholder="Search..." class="search-input">
+                <input type="search" placeholder="Search..." class="search-input" style="width: 700px">
                 <i class="mdi mdi-magnify search-icon"></i>
             </div>
         </form>
@@ -146,7 +140,7 @@
         <div class="col-md-3">
           <a href="product.html" class="seamless-link">
             <div class="card mb-4" style="width: 14rem;">
-              <img src="${product.image}" class="card-img-top" alt="${product.name}" style="width:100%">
+              <img src="${product.image}" class="card-img-top" alt="${product.name}" style="width:100%; height: 200px;">
               <div class="card-body">
                 <h5>${product.name}</h5>
                 <p class="card-text discount">${product.discount}</p>
@@ -165,47 +159,5 @@
 </script>
 
 </body>
-<link rel="stylesheet" href="css/main.css">
-<footer>
-    <form>
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <div class="btn-group center-button-container">
-                        <div class="center-button">
-                            <a href="end.html" class="button">About us</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button">Contact us</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button">Customer Service</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button">Privacy Policy</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button hidden">Terms and Conditions</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button hidden">Payment and Security</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</footer>
-
-<style>
-    .center-button-container {
-        display: flex;
-        justify-content: center;
-    }
-
-    .center-button {
-        margin: 0 10px;
-    }
-</style>
 
 </html>
