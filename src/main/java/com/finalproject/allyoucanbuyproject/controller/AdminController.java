@@ -58,5 +58,14 @@ public class AdminController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/details")
+    public ResponseEntity<AdminModel> getAdminDetails() {
+        AdminModel adminModel = adminService.getAuthenticatedAdmin();
+        if (adminModel != null) {
+            return new ResponseEntity<>(adminModel, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
 

@@ -1,5 +1,6 @@
 package com.finalproject.allyoucanbuyproject.controller;
 
+import com.finalproject.allyoucanbuyproject.model.OrderLine;
 import com.finalproject.allyoucanbuyproject.model.OrderModel;
 import com.finalproject.allyoucanbuyproject.model.UserModel;
 import com.finalproject.allyoucanbuyproject.service.OrderService;
@@ -40,4 +41,10 @@ public class OrderController {
 
     @DeleteMapping("/orders/{id}")
     public void deleteOrder(@PathVariable Long id) { orderService.deleteOrder(id); }
+
+    @PostMapping("/{orderId}/orderLines")
+    public ResponseEntity<OrderModel> addOrderLine(@PathVariable Long orderId, @RequestBody OrderLine orderLine) {
+        OrderModel updatedOrder = orderService.addOrderLine(orderId, orderLine);
+        return ResponseEntity.ok(updatedOrder);
+    }
 }
