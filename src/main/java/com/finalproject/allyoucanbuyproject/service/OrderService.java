@@ -1,6 +1,5 @@
 package com.finalproject.allyoucanbuyproject.service;
 
-
 import com.finalproject.allyoucanbuyproject.exceptions.OrderNotFoundException;
 import com.finalproject.allyoucanbuyproject.model.OrderLine;
 import com.finalproject.allyoucanbuyproject.model.OrderModel;
@@ -12,14 +11,14 @@ import java.util.Optional;
 
 @Service
 public class OrderService {
-private final OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     public OrderService(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
 
-    public void save(OrderModel order) {
-        orderRepository.save(order);
+    public OrderModel save(OrderModel order) {
+        return orderRepository.save(order);
     }
     public List<OrderModel> getAllOrders() {
         return orderRepository.findAll();
@@ -32,9 +31,13 @@ private final OrderRepository orderRepository;
         return orderRepository.save(orderModel);
     }
 
-    public void deleteOrder(Long orderId) { orderRepository.deleteById(orderId);}
+    public void deleteOrder(Long orderId) {
+        orderRepository.deleteById(orderId);
+    }
 
-    public Optional<OrderModel> getOrderById(Long orderId) { return orderRepository.findById(orderId);}
+    public Optional<OrderModel> getOrderById(Long orderId) {
+        return orderRepository.findById(orderId);
+    }
 
     public OrderModel addOrderLine(Long orderId, OrderLine orderLine) {
         Optional<OrderModel> optionalOrder = orderRepository.findById(orderId);
