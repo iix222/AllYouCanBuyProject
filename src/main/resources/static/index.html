@@ -103,28 +103,27 @@
 <article class="browser">
     <h1 style="background-color:pink; font-family:cursive; text-align:center;">Special orders -50%</h1>
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="product.html" class="seamless-link">
-                    <div class="card mb-4" style="width: 14rem;">
-                        <img src="https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg" class="card-img-top" alt="Garden" style="width:100%; height: 200px;">
-                        <div class="card-body">
-                            <h5>Garden furniture</h5>
-                            <p class="card-text discount">15% off</p>
-                            <h5 class="card-title">99€</h5>
-                        </div>
-                    </div>
-                </a>
+    <div class="col-md-3">
+        <a href="product.html" class="seamless-link">
+            <div class="card mb-4" style="width: 14rem;">
+                <img src="https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg" class="card-img-top" alt="Garden" style="width:100%; height: 200px;">
+                <div class="card-body">
+                    <h5>Garden furniture</h5>
+                    <p class="card-text discount">15% off</p>
+                    <h5 class="card-title">109.65€</h5>
+                </div>
             </div>
-            <div class="col-md-3">
+        </a>
+    </div>
+
+    <div class="col-md-3">
                 <a href="product.html" class="seamless-link">
                     <div class="card mb-4" style="width: 14rem;">
                         <img src="https://m.media-amazon.com/images/I/61q8Esn5UvL._AC_SY879_.jpg" class="card-img-top" alt="Electronics" style="width:100%; height: 200px;">
                         <div class="card-body">
                             <h5>Headphones</h5>
                             <p class="card-text discount">15% off</p>
-                            <h5 class="card-title">50€</h5>
+                            <h5 class="card-title">51€</h5>
                         </div>
                     </div>
                 </a>
@@ -136,7 +135,7 @@
                         <div class="card-body">
                             <h5>Instant camera</h5>
                             <p class="card-text discount">50% off</p>
-                            <h5 class="card-title">89€</h5>
+                            <h5 class="card-title">95€</h5>
                         </div>
                     </div>
                 </a>
@@ -148,7 +147,7 @@
                         <div class="card-body">
                             <h5>Dog bed</h5>
                             <p class="card-text discount">35% off</p>
-                            <h5 class="card-title">49€</h5>
+                            <h5 class="card-title">45.50€</h5>
                         </div>
                     </div>
                 </a>
@@ -168,7 +167,7 @@
                     <div class="card-body">
                         <h5>Fountain</h5>
                         <p class="card-text discount">15% off</p>
-                        <h5 class="card-title">150€</h5>
+                        <h5 class="card-title">153€</h5>
                     </div>
                 </div>
             </a>
@@ -179,8 +178,8 @@
                     <img src="https://m.media-amazon.com/images/I/61fkIpO4SxL._AC_SL1500_.jpg" class="card-img-top" alt="Electronics" style="width:100%; height: 200px;">
                     <div class="card-body">
                         <h5>Tempered glass</h5>
-                        <p class="card-text discount">35% off</p>
-                        <h5 class="card-title">9.95€</h5>
+                        <p class="card-text discount">50% off</p>
+                        <h5 class="card-title">6€</h5>
                     </div>
                 </div>
             </a>
@@ -192,7 +191,7 @@
                     <div class="card-body">
                         <h5>Statue</h5>
                         <p class="card-text discount">35% off</p>
-                        <h5 class="card-title">35€</h5>
+                        <h5 class="card-title">35.75€</h5>
                     </div>
                 </div>
             </a>
@@ -204,7 +203,7 @@
                     <div class="card-body">
                         <h5>Dog bowl</h5>
                         <p class="card-text discount">15% off</p>
-                        <h5 class="card-title">35€</h5>
+                        <h5 class="card-title">46.75€</h5>
                     </div>
                 </div>
             </a>
@@ -326,7 +325,7 @@
     // Receive the data
     function fetchWeatherData(position) {
         const { latitude, longitude } = position.coords;
-        const apiKey = '3c3753ca3da20a82c5cfbbb73968f323'; // Replace with your OpenWeatherMap API key
+        const apiKey = '3c3753ca3da20a82c5cfbbb73968f323';
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
         fetch(weatherUrl)
             .then(response => response.json())

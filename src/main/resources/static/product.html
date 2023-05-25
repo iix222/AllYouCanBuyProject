@@ -71,7 +71,6 @@
 </head>
 <body>
 <header>
-
     <nav class="navbar">
         <a class="logo-wrapper" href="index.html">
             <img src="assets/Allyoucanbuy1.png" alt="All you can buy!" style="width:100%; height: 80px;">
@@ -115,26 +114,23 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h1 class="card-title text-center">Product Name</h1>
+            <h1 class="card-title text-center" id="product-name"></h1>
             <br>
             <div class="row">
                 <div class="col-md-6">
-                    <p class="category">Category: Category Name</p>
-                    <p>Type: Type Name</p>
-                    <img src="https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg" alt="Product Image" class="product-image">
+                    <p class="category" id="product-category"></p>
+                    <p>Type: <span id="product-type"></span></p>
+                    <img src="" alt="Product Image" class="product-image" id="product-image">
                 </div>
                 <div class="col-md-6">
-                    <p class="description">Description:
-                        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    <p class="description" id="product-description"></p>
 
                     <h2 class="price">
-                        <span class="original-price">$129.99</span> <!-- Original price with strike-through -->
+                        <span class="original-price" id="product-original-price"></span>
                         <br>
-                        <span style="color: red;">$99.99</span> <!-- Discounted price in red color -->
+                        <span style="color: red;" id="product-price"></span>
                     </h2>
-                    <p class="discount">15% off</p>
+                    <p class="discount" id="product-discount"></p>
                     <form action="shopping_cart.html">
                         <div class="form-group">
                             <label for="quantity">Quantity:</label>
@@ -144,7 +140,6 @@
                             <span class="mdi mdi-cart"></span> Add to Cart
                         </button>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -154,38 +149,32 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="data.js"></script>
+<script>
+    $(document).ready(function() {
+        // Retrieve the product ID from the query parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Find the product details based on the product ID
+        const product = products.find((p) => p.id === Number(productId));
+
+        // Calculate the discounted price
+        const discountedPrice = product.original_price * (1 - product.discount / 100);
+
+        // Set the product details
+        $('#product-name').text(product.name);
+        $('#product-category').text(`Category: ${product.category}`);
+        $('#product-type').text(product.type);
+        $('#product-image').attr('src', product.image);
+        $('#product-description').text(product.description);
+        $('#product-original-price').text('$' + product.original_price.toFixed(2));
+        $('#product-price').text('$' + discountedPrice.toFixed(2));
+        $('#product-discount').text(product.discount);
+    });
+</script>
 </body>
 <link rel="stylesheet" href="css/main.css">
-<footer>
-    <form>
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <div class="btn-group center-button-container">
-                        <div class="center-button">
-                            <a href="end.html" class="button">About us</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button">Contact us</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button">Customer Service</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button">Privacy Policy</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button hidden">Terms and Conditions</a>
-                        </div>
-                        <div class="center-button">
-                            <a href="end.html" class="button hidden">Payment and Security</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</footer>
 
 <style>
     .center-button-container {

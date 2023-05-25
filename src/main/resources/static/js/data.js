@@ -1,3 +1,14 @@
+const modifiedProducts = products.map(product => {
+    const originalPrice = parseFloat(product.original_price);
+    const discountPercentage = parseFloat(product.discount.replace('% off', '')) / 100;
+    const discountedPrice = originalPrice - (originalPrice * discountPercentage);
+
+    return {
+        ...product,
+        price: discountedPrice.toFixed(2) + '€'
+    };
+});
+
 const products = [
     {
         id: 1,
@@ -5,10 +16,10 @@ const products = [
         category: 'Garden',
         type: 'Furniture',
         image: 'https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg',
-        original_price:'129€',
+        original_price: '129€',
         discount: '15% off',
-        price: '99€',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        price: '109.65€',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
     {
         id: 2,
@@ -18,8 +29,8 @@ const products = [
         image: 'https://m.media-amazon.com/images/I/61q8Esn5UvL._AC_SY879_.jpg',
         original_price: '60€',
         discount: '15% off',
-        price: '50€',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        price: '51€',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
     {
         id: 3,
@@ -29,18 +40,19 @@ const products = [
         image: 'https://m.media-amazon.com/images/I/412JsUs79hL._AC_SX679_.jpg',
         original_price: '190€',
         discount: '50% off',
-        price: '89€',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        price: '95€',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
-    { id: 4,
+    {
+        id: 4,
         name: 'Dog bed',
-        type: 'Animals',
         category: 'Pets',
+        type: 'Animals',
         image: 'https://m.media-amazon.com/images/I/810uFCMRFuL._AC_SL1500_.jpg',
         original_price: '70€',
         discount: '35% off',
-        price: '49€',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        price: '45.50€',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
     {
         id: 5,
@@ -50,19 +62,19 @@ const products = [
         image: 'https://m.media-amazon.com/images/I/81VkLCn0gCL._AC_SX679_.jpg',
         original_price: '180€',
         discount: '15% off',
-        price: '150€',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        price: '153€',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
     {
         id: 6,
         name: 'Tempered glass',
         category: 'Electronics',
-        type: 'Electronic',
-        image: 'https://m.media-amazon.com/images/I/61fkIpO4SxL._AC_SL1500_.jpg',
-        original_price: '15€',
-        discount: '35% off',
-        price: '9.95€',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        type: 'Accessory',
+        image: 'https://m.media-amazon.com/images/I/61p9AIxMxhL._AC_SX679_.jpg',
+        original_price: '12€',
+        discount: '50% off',
+        price: '6€',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
     {
         id: 7,
@@ -72,7 +84,7 @@ const products = [
         image: 'https://m.media-amazon.com/images/I/81ljUc1awvL._AC_SL1500_.jpg',
         original_price: '55€',
         discount: '35% off',
-        price: '35€',
+        price: '35.75€',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
@@ -83,7 +95,7 @@ const products = [
         image: 'https://m.media-amazon.com/images/I/61GYd8qG2QL._AC_SL1500_.jpg',
         original_price: '55€',
         discount: '15% off',
-        price: '35€',
+        price: '46.75€',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
     {
