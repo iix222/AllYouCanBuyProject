@@ -147,7 +147,7 @@
     </div>
 </div>
 
-<script src="data.js"></script>
+<script src="js/data.js"></script>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get('id'));
@@ -161,8 +161,8 @@
         document.getElementById('product-image').src = product.image;
         document.getElementById('product-description').textContent = product.description;
         document.getElementById('product-original-price').textContent = `Original Price: ${product.original_price}`;
-        document.getElementById('product-price').textContent = `Discounted Price: ${product.discount}`;
-        document.getElementById('product-discount').textContent = `Discount: ${product.discount}%`;
+        document.getElementById('product-price').textContent = `Discounted Price: ${product.price}`;
+        document.getElementById('product-discount').textContent = `Discount: ${product.discount}`;
     } else {
         document.getElementById('product-name').textContent = 'Product not found';
     }

@@ -7,7 +7,7 @@ const products = [
         category: 'Garden',
         type: 'Furniture',
         image: 'https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg',
-        original_price: '129€',
+        original_price: '129\u20AC',
         discount: '15% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
@@ -17,7 +17,7 @@ const products = [
         category: 'Electronics',
         type: 'Electronic',
         image: 'https://m.media-amazon.com/images/I/61q8Esn5UvL._AC_SY879_.jpg',
-        original_price: '60€',
+        original_price: '60\u20AC',
         discount: '15% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
@@ -27,7 +27,7 @@ const products = [
         category: 'Electronics',
         type: 'Electronic',
         image: 'https://m.media-amazon.com/images/I/412JsUs79hL._AC_SX679_.jpg',
-        original_price: '190€',
+        original_price: '190\u20AC',
         discount: '50% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
@@ -37,7 +37,7 @@ const products = [
         category: 'Pets',
         type: 'Animals',
         image: 'https://m.media-amazon.com/images/I/810uFCMRFuL._AC_SL1500_.jpg',
-        original_price: '70€',
+        original_price: '70\u20AC',
         discount: '35% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
@@ -47,7 +47,7 @@ const products = [
         category: 'Garden',
         type: 'Furniture',
         image: 'https://m.media-amazon.com/images/I/81VkLCn0gCL._AC_SX679_.jpg',
-        original_price: '180€',
+        original_price: '180\u20AC',
         discount: '15% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
@@ -56,8 +56,8 @@ const products = [
         name: 'Tempered glass',
         category: 'Electronics',
         type: 'Accessory',
-        image: 'https://m.media-amazon.com/images/I/61p9AIxMxhL._AC_SX679_.jpg',
-        original_price: '12€',
+        image: 'https://m.media-amazon.com/images/I/61fkIpO4SxL._AC_SL1500_.jpg',
+        original_price: '12\u20AC',
         discount: '50% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
     },
@@ -67,7 +67,7 @@ const products = [
         category: 'Garden',
         type: 'Furniture',
         image: 'https://m.media-amazon.com/images/I/81ljUc1awvL._AC_SL1500_.jpg',
-        original_price: '55€',
+        original_price: '55\u20AC',
         discount: '35% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
@@ -77,7 +77,7 @@ const products = [
         category: 'Pets',
         type: 'Animals',
         image: 'https://m.media-amazon.com/images/I/61GYd8qG2QL._AC_SL1500_.jpg',
-        original_price: '55€',
+        original_price: '55\u20AC',
         discount: '15% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
@@ -87,7 +87,7 @@ const products = [
         category: 'Electronics',
         type: 'Electronic',
         image: 'https://m.media-amazon.com/images/I/71wiSqyzn6L._AC_SL1500_.jpg',
-        original_price: '259€',
+        original_price: '259\u20AC',
         discount: '0% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
@@ -97,7 +97,7 @@ const products = [
         category: 'Pets',
         type: 'Animals',
         image: 'https://m.media-amazon.com/images/I/61NPu0p-wsL._AC_SL1000_.jpg',
-        original_price: '15€',
+        original_price: '15\u20AC',
         discount: '0% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
@@ -107,7 +107,7 @@ const products = [
         category: 'Pets',
         type: 'Animals',
         image: 'https://m.media-amazon.com/images/I/81jNiuZUXjL._AC_SL1500_.jpg',
-        original_price: '35€',
+        original_price: '35\u20AC',
         discount: '0% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     },
@@ -117,7 +117,7 @@ const products = [
         category: 'Garden',
         type: 'Furniture',
         image: 'https://m.media-amazon.com/images/I/71dCUT0RF1L._AC_SL1500_.jpg',
-        original_price: '349€',
+        original_price: '349\u20AC',
         discount: '0% off',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
     }
@@ -125,12 +125,12 @@ const products = [
 
 const modifiedProducts = products.map(product => {
     const originalPrice = parseFloat(product.original_price);
-    const discountPercentage = parseFloat(product.discount.replace('% off', '')) / 100;
+    const discountPercentage = parseFloat(product.discount.replace('off', '')) / 100;
     const discountedPrice = originalPrice - (originalPrice * discountPercentage);
 
     return {
         ...product,
-        price: discountedPrice.toFixed(2) + '€'
+        price: discountedPrice.toFixed(2) + "\u20AC"
     };
 });
 products.forEach(product => {

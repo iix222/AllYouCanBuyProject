@@ -94,58 +94,78 @@
     </a>
   </nav>
 </header>
-<article class="browser">
+<main>
   <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <a href="product.html" class="seamless-link">
-          <div class="card mb-4" style="width: 14rem;">
-            <img src="https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg" class="card-img-top" alt="Garden" style="width:100%; height: 200px;">
-            <div class="card-body">
-              <h5 class="card-title">Garden furniture</h5>
-              <p class="card-text discount">15% off</p>
-              <h5 class="card-title">99€</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a href="product.html" class="seamless-link">
-          <div class="card mb-4" style="width: 14rem;">
-            <img src="https://m.media-amazon.com/images/I/81VkLCn0gCL._AC_SX679_.jpg" class="card-img-top" alt="Garden" style="width:100%; height: 200px;">
-            <div class="card-body">
-              <h5 class="card-title">Fountain</h5>
-              <p class="card-text discount">15% off</p>
-              <h5 class="card-title">150€</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a href="product.html" class="seamless-link">
-          <div class="card mb-4" style="width: 14rem;">
-            <img src="https://m.media-amazon.com/images/I/81ljUc1awvL._AC_SL1500_.jpg" class="card-img-top" alt="Garden" style="width:100%; height: 200px;">
-            <div class="card-body">
-              <h5 class="card-title">Statue</h5>
-              <p class="card-text discount">15% off</p>
-              <h5 class="card-title">35€</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-3">
-        <a href="product.html" class="seamless-link">
-          <div class="card mb-4" style="width: 14rem;">
-            <img src="https://m.media-amazon.com/images/I/71dCUT0RF1L._AC_SL1500_.jpg" class="card-img-top" alt="Garden" style="width:100%; height: 240px;">
-            <div class="card-body">
-              <h5 class="card-title">Lawnmower</h5>
-              <h5 class="card-title">349€</h5>
-            </div>
-          </div>
-        </a>
+    <h1>Garden</h1>
+    <div class="row"></div>
+  </div>
+</main>
+</body>
+<script>
+
+  const products = [
+    {
+      id: 1,
+      name: 'Garden furniture',
+      category: 'Garden',
+      type: 'Furniture',
+      image: 'https://m.media-amazon.com/images/I/71AGDYIh4qL._AC_SX679_.jpg',
+      original_price: '129\u20AC',
+      discount: '15% off',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
+    },
+    {
+      id: 5,
+      name: 'Fountain',
+      category: 'Garden',
+      type: 'Furniture',
+      image: 'https://m.media-amazon.com/images/I/81VkLCn0gCL._AC_SX679_.jpg',
+      original_price: '180\u20AC',
+      discount: '15% off',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...',
+    },
+    {
+      id: 7,
+      name: 'Statue',
+      category: 'Garden',
+      type: 'Furniture',
+      image: 'https://m.media-amazon.com/images/I/81ljUc1awvL._AC_SL1500_.jpg',
+      original_price: '55\u20AC',
+      discount: '35% off',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    },
+    {
+      id: 12,
+      name: 'Lawnmower',
+      category: 'Garden',
+      type: 'Furniture',
+      image: 'https://m.media-amazon.com/images/I/71dCUT0RF1L._AC_SL1500_.jpg',
+      original_price: '349\u20AC',
+      discount: '0% off',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    }
+  ];
+const renderProducts = () => {
+const productList = products.map(
+(product) => `
+<div class="col-md-3">
+  <a href="product.html?id=${product.id}" class="seamless-link">
+    <div class="card mb-4" style="width: 14rem;">
+      <img src="${product.image}" class="card-img-top" alt="${product.name}" style="width:100%; height: 200px;">
+      <div class="card-body">
+        <h5>${product.name}</h5>
+        <p class="card-text discount">${product.discount}</p>
+        <h5 class="card-title">${product.original_price}</h5>
       </div>
     </div>
-  </div>
-</article>
-</body>
+  </a>
+</div>
+`
+).join('');
+
+$('.row').html(productList);
+};
+
+renderProducts();
+</script>
 </html>
