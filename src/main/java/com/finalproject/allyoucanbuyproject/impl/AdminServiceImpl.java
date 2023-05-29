@@ -3,6 +3,8 @@ package com.finalproject.allyoucanbuyproject.impl;
 import com.finalproject.allyoucanbuyproject.model.AdminModel;
 import com.finalproject.allyoucanbuyproject.repository.AdminRepository;
 import com.finalproject.allyoucanbuyproject.service.AdminService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,7 +53,32 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public void saveAdmin(AdminModel admin) {
+        adminRepository.save(admin);
+    }
+    @Override
+    public boolean performLogin(String username, String password) {
+        return isValidPassword(username, password);
+    }
+    @Override
+    public boolean isValidPassword(String username, String password) {
+        AdminModel admin = findAdminByUsername(username);
+        return admin != null && admin.getPassword().equals(password);
+    }
+    @Override
+    public AdminModel findAdminByUsername(String username) {
+        return adminRepository.findByUsername(username);
+    }
+
+    @Override
     public AdminModel getAuthenticatedAdmin() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            String username = authentication.getName();
+            return findAdminByUsername(username);
+        }
         return null;
     }
+
+
 }

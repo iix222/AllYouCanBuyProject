@@ -41,21 +41,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
         // Annotation
         @Override
         // Method
-        protected void configure(HttpSecurity http)
-                throws Exception
-        {
-
+        protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/basic")
-                    .permitAll()
-                    .antMatchers("/admin")
-                    .hasRole("ADMIN")
-
-                    .hasAnyRole("BASIC", "ADMIN")
-                    .antMatchers("/")
-                    .permitAll()
-                    .anyRequest()
-                    .authenticated()
+                    .antMatchers("/basic").permitAll()
+                    .antMatchers("/admin").hasRole("ADMIN")
+                    .antMatchers("/").permitAll()
+                    .anyRequest().authenticated()
                     .and()
                     .formLogin()
                     .permitAll()
@@ -63,9 +54,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
                     .usernameParameter("username")
                     .and()
                     .logout()
-                    .logoutRequestMatcher(
-                            new AntPathRequestMatcher("/logout"))
-                    .permitAll();
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .permitAll()
+                    .and()
+                    .authorizeRequests()
+                    .anyRequest()
+                    .access("hasRole('BASIC') or hasRole('ADMIN')");
         }
     }
 

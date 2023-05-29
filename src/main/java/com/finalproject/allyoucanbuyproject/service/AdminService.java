@@ -10,6 +10,9 @@ public interface AdminService {
     List<AdminModel> getAllAdmins();
     AdminModel updateAdmin(Long id, AdminModel adminModel);
     boolean deleteAdmin(Long id);
-
     AdminModel getAuthenticatedAdmin();
+    AdminModel findAdminByUsername(String username);
+    boolean isValidPassword(String username, String password);
+    boolean performLogin(String username, String password);
+    void saveAdmin(AdminModel admin);
 }

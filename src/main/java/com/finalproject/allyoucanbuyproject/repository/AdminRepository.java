@@ -13,4 +13,6 @@ public interface AdminRepository extends JpaRepository<AdminModel, Long> {
     List<AdminModel> findAll();
     void deleteAdminById(Long id);
 
+    AdminModel findByUsername(String username);
+
 }
