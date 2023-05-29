@@ -4,11 +4,27 @@ import com.finalproject.allyoucanbuyproject.model.UserModel;
 import com.finalproject.allyoucanbuyproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SignUpController {
+    @GetMapping("/admin") public String user()
+    {
+        return "admin.html";
+    }
+
+    @GetMapping("/main") public String basic()
+    {
+        return "main.html";
+    }
+
+    @GetMapping("/login") public String login()
+    {
+        return "sign_in.html";
+    }
+
 
     @Autowired
     private UserService userService;

@@ -1,7 +1,7 @@
 package com.finalproject.allyoucanbuyproject.model;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -11,7 +11,7 @@ import org.springframework.data.annotation.Id;
 @Setter
 public class OrderLine {
 
-    @jakarta.persistence.Id
+    @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
