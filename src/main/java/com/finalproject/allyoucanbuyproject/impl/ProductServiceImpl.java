@@ -32,4 +32,7 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.save(product);
     }
 
+    public List<ProductModel> searchProducts(String query) {
+        return productRepository.findByProductNameContainingIgnoreCase(query);
+    }
 }

@@ -39,6 +39,11 @@ public class ProductController {
         return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
+    @GetMapping("/search")
+    public List<ProductModel> searchProducts(@RequestParam("query") String query) {
+        return productService.searchProducts(query);
+    }
+
 }
 
 

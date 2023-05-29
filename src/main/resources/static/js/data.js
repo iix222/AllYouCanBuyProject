@@ -141,3 +141,4 @@ products.forEach(product => {
     const productContainer = document.getElementById('product-container');
     productContainer.appendChild(link);
 });
+

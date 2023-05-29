@@ -40,18 +40,16 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
         // Annotation
         @Override
-        // Method
+        //Method
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests()
-                    .antMatchers("/basic").permitAll()
+                    .antMatchers("/main").permitAll() // Update the URL of your main page
                     .antMatchers("/admin").hasRole("ADMIN")
-                    .antMatchers("/").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .formLogin()
-                    .permitAll()
                     .loginPage("/login")
-                    .usernameParameter("username")
+                    .permitAll()
                     .and()
                     .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
