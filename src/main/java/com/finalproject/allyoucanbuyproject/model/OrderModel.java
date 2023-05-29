@@ -1,7 +1,7 @@
 package com.finalproject.allyoucanbuyproject.model;
 
 import com.finalproject.allyoucanbuyproject.service.OrderStatus;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
