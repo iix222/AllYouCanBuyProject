@@ -3,6 +3,7 @@ package com.finalproject.allyoucanbuyproject.controller;
 import com.finalproject.allyoucanbuyproject.model.CartItemModel;
 import com.finalproject.allyoucanbuyproject.service.CartItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,11 +24,6 @@ public class CartItemController {
         return cartItemService.getAllCartItems();
     }
 
-    @PostMapping
-    public void addCartItem(@RequestBody CartItemModel cartItem) {
-        cartItemService.saveCartItem(cartItem);
-    }
-
     @DeleteMapping("/{id}")
     public void deleteCartItem(@PathVariable("id") Long id) {
         cartItemService.deleteCartItem(id);
@@ -36,5 +32,11 @@ public class CartItemController {
     @PutMapping("/{id}")
     public CartItemModel updateCartItem(@PathVariable Long id, @RequestBody CartItemModel cartItem) {
         return cartItemService.updateCartItem(id, cartItem);
+    }
+
+    @PostMapping
+    public ResponseEntity<CartItemModel> addToCart(@RequestBody CartItemModel cartItem) {
+        CartItemModel addedCartItem = cartItemService.addToCart(cartItem);
+        return ResponseEntity.ok(addedCartItem);
     }
 }

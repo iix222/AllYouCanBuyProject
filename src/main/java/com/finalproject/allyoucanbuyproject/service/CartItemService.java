@@ -10,5 +10,6 @@ public interface CartItemService {
     void saveCartItem(CartItemModel cartItem);
     void deleteCartItem(Long id);
     CartItemModel updateCartItem(Long id, CartItemModel updatedCartItem);
+    CartItemModel addToCart(CartItemModel cartItem);
 
 }

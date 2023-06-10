@@ -57,4 +57,23 @@ public class CartItemServiceImpl implements CartItemService {
         // Save the updated cart item
         return cartItemRepository.save(existingCartItem);
     }
+
+    @Override
+    public CartItemModel addToCart(CartItemModel cartItem) {
+        if (cartItem == null || cartItem.getProduct() == null || cartItem.getQuantity() <= 0) {
+            throw new IllegalArgumentException("Invalid cart item");
+        }
+
+        // Perform calculations or apply discounts if needed
+
+        double itemPrice = cartItem.getProduct().getPrice();
+        int quantity = cartItem.getQuantity();
+        double totalPrice = itemPrice * quantity;
+
+        // Set the calculated total price in the cart item
+        cartItem.setTotalPrice(totalPrice);
+
+        CartItemModel savedCartItem = cartItemRepository.save(cartItem);
+        return cartItemRepository.save(cartItem);
+    }
 }

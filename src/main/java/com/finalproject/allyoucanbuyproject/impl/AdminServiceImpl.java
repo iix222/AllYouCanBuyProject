@@ -3,8 +3,8 @@ package com.finalproject.allyoucanbuyproject.impl;
 import com.finalproject.allyoucanbuyproject.model.AdminModel;
 import com.finalproject.allyoucanbuyproject.repository.AdminRepository;
 import com.finalproject.allyoucanbuyproject.service.AdminService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -53,6 +53,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public AdminModel getAuthenticatedAdmin() {
+        return null;
+    }
+
+    @Override
     public void saveAdmin(AdminModel admin) {
         adminRepository.save(admin);
     }
@@ -70,15 +75,15 @@ public class AdminServiceImpl implements AdminService {
         return adminRepository.findByUsername(username);
     }
 
-    @Override
-    public AdminModel getAuthenticatedAdmin() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null && authentication.isAuthenticated()) {
-            String username = authentication.getName();
-            return findAdminByUsername(username);
-        }
-        return null;
-    }
+//    @Override
+//    public AdminModel getAuthenticatedAdmin() {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication != null && authentication.isAuthenticated()) {
+//            String username = authentication.getName();
+//            return findAdminByUsername(username);
+//        }
+//        return null;
+//    }
 
 
 }

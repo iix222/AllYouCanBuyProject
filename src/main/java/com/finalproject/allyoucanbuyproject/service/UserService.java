@@ -3,7 +3,6 @@ package com.finalproject.allyoucanbuyproject.service;
 import com.finalproject.allyoucanbuyproject.dto.UpdateUserRequest;
 import com.finalproject.allyoucanbuyproject.model.UserModel;
 import com.finalproject.allyoucanbuyproject.repository.UserRepository;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.login.AccountNotFoundException;

@@ -1,11 +1,17 @@
 package com.finalproject.allyoucanbuyproject.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.finalproject.allyoucanbuyproject.model.ProductModel;
 import com.finalproject.allyoucanbuyproject.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.List;
 
 @RestController
@@ -17,10 +23,38 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping
+    @GetMapping("/products")
     public ResponseEntity<List<ProductModel>> getAllProducts() {
-        List<ProductModel> products = productService.getAllProducts();
-        return new ResponseEntity<>(products, HttpStatus.OK);
+        try {
+            // Read the contents of data.js file
+            File file = ResourceUtils.getFile("src/main/resources/static/js/data.js");
+            String jsonData = Files.readString(file.toPath(), StandardCharsets.UTF_8);
+
+            // Parse the JSON data from data.js
+            List<ProductModel> products = parseProductsFromJson(jsonData);
+
+            // Return the products as a response
+            return new ResponseEntity<>(products, HttpStatus.OK);
+        } catch (Exception e) {
+            // Handle any exceptions that occur
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    // Helper method to parse the products from JSON
+    private List<ProductModel> parseProductsFromJson(String jsonData) {
+        try {
+            // Create an instance of ObjectMapper to parse JSON
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            // Use the ObjectMapper to convert JSON into a List<ProductModel>
+            return objectMapper.readValue(jsonData, new TypeReference<List<ProductModel>>() {});
+        } catch (Exception e) {
+            // Handle any exceptions that occur
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @GetMapping("/{id}")
@@ -43,7 +77,4 @@ public class ProductController {
     public List<ProductModel> searchProducts(@RequestParam("query") String query) {
         return productService.searchProducts(query);
     }
-
 }
-
-

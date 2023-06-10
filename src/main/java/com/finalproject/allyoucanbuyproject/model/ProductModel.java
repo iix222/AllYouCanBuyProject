@@ -27,11 +27,13 @@ public class ProductModel {
     private String type;
     private String manufacturer;
     private String discount;
-
-
     public void setName(String name) {
     }
 
     public void setDiscount(String discount) {
+    }
+
+    public void setDescription(String description) {
+        System.out.println("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...");
     }
 }

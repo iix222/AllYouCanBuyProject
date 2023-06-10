@@ -73,7 +73,6 @@
 </head>
 <body>
 <header>
-
     <nav class="navbar">
         <a class="logo-wrapper" href="index.html">
             <img src="assets/Allyoucanbuy1.png" alt="All you can buy!" style="width:100%; height: 80px;">
@@ -139,7 +138,7 @@
                             <label for="quantity">Quantity:</label>
                             <input type="number" id="quantity" name="quantity" min="1" value="1" class="form-control quantity-input">
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button id="add-to-cart-button" type="submit" class="btn btn-primary">
                             <span class="mdi mdi-cart"></span> Add to Cart
                         </button>
                     </form>
@@ -168,7 +167,46 @@
     } else {
         document.getElementById('product-name').textContent = 'Product not found';
     }
+
+    // Get the reference to the "Add to Cart" button
+    const addToCartButton = document.getElementById('add-to-cart-button');
+
+    // Add event listener to the button
+    addToCartButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the form submission
+
+        // Get the quantity value entered by the user
+        const quantityInput = document.getElementById('quantity');
+        const quantity = parseInt(quantityInput.value);
+
+        // Create an object representing the item to be added to the cart
+        const cartItem = {
+            id: productId,
+            name: product.name,
+            quantity: quantity,
+            price: product.price
+        };
+
+        // Retrieve the existing cart items from storage
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        // Check if the product already exists in the cart
+        const existingCartItemIndex = cartItems.findIndex(item => item.id === cartItem.id);
+
+        if (existingCartItemIndex !== -1) {
+            // Product already exists in the cart, update the quantity
+            cartItems[existingCartItemIndex].quantity += quantity;
+        } else {
+            // Product does not exist in the cart, add it as a new item
+            cartItems.push(cartItem);
+        }
+
+        // Store the updated cart items back into storage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        // Redirect the user to the shopping cart page
+        window.location.href = 'shopping_cart.html';
+    });
 </script>
 </body>
 </html>
-
